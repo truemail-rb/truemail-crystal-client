@@ -1,0 +1,9 @@
+name: truemail-client
+version: 0.1.0
+
+authors:
+  - Vladislav Trotsenko <admin@bestweb.com.ua>
+
+crystal: 0.34.0
+
+license: MIT
