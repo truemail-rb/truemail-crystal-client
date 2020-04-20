@@ -14,3 +14,6 @@ development_dependencies:
     gitlab: arctic-fox/spectator
   ameba:
     github: crystal-ameba/ameba
+  webmock:
+    github: manastech/webmock.cr
+    branch: master
