@@ -1,4 +1,5 @@
 name: truemail-client
+
 version: 0.1.0
 
 authors:
@@ -7,3 +8,9 @@ authors:
 crystal: 0.34.0
 
 license: MIT
+
+development_dependencies:
+  spectator:
+    gitlab: arctic-fox/spectator
+  ameba:
+    github: crystal-ameba/ameba

@@ -1,0 +1,59 @@
+defaults: &defaults
+  working_directory: ~/truemail-crystal-client
+  docker:
+    - image: crystallang/crystal:0.34.0-alpine
+
+references:
+  restore_shards_cache: &restore_shards_cache
+    restore_cache:
+      keys:
+        - shards-cache-v1-{{ checksum "shard.yml" }}
+
+  shards_intall: &shards_intall
+    run:
+      name: Installing shards
+      command: shards install
+
+  save_shards_cache: &save_shards_cache
+    save_cache:
+      key: shards-cache-v1-{{ checksum "shard.yml" }}
+      paths:
+        - ./shards-cache
+
+version: 2
+jobs:
+  linters:
+    <<: *defaults
+
+    steps:
+      - checkout
+
+      - <<: *restore_shards_cache
+      - <<: *shards_intall
+      - <<: *save_shards_cache
+
+      - run:
+          name: Running ameba
+          command: |
+            bin/ameba
+  tests:
+    <<: *defaults
+
+    steps:
+      - checkout
+
+      - <<: *restore_shards_cache
+      - <<: *shards_intall
+      - <<: *save_shards_cache
+
+      - run:
+          name: Running tests
+          command: |
+           crystal spec
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - linters
+      - tests
