@@ -1,2 +1,2 @@
-require "spec"
-require "../src/truemail-client"
+require "spectator"
+require "../src/**"
