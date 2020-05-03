@@ -3,55 +3,32 @@ require "../../spec_helper"
 Spectator.describe Truemail::Client::Http do
   include RequestHelper
 
+  let(:secure_connection) { true }
   let(:host) { "example.com" }
-  let(:token) { "some_token" }
   let(:port) { 8080 }
+  let(:token) { "some_token" }
 
   describe "defined constants" do
-    it { expect(Truemail::Client::Http::DEFAULT_PORT).to be_an_instance_of(Int32) }
     it { expect(Truemail::Client::Http::USER_AGENT).to be_an_instance_of(String) }
     it { expect(Truemail::Client::Http::MIME_TYPE).to be_an_instance_of(String) }
   end
 
   describe ".new" do
-    context "with default params values" do
-      subject(:http_instance) { described_class.new(host: host, token: token) }
-
-      it "returns http instance with default values" do
-        expect(http_instance.host).to eq(host)
-        expect(http_instance.token).to eq(token)
-        expect(http_instance.port).to eq(Truemail::Client::Http::DEFAULT_PORT)
-        expect(http_instance.secure_connection).to be(false)
-      end
+    subject(:http_instance) do
+      described_class.new(secure_connection: secure_connection, host: host, port: port, token: token)
     end
 
-    context "with custom params values" do
-      subject(:http_instance) do
-        described_class.new(host: host, token: token, port: port, secure_connection: secure_connection)
-      end
-
-      let(:secure_connection) { true }
-
-      it "returns http instance with custom values" do
-        expect(http_instance.host).to eq(host)
-        expect(http_instance.token).to eq(token)
-        expect(http_instance.port).to eq(port)
-        expect(http_instance.secure_connection).to be(secure_connection)
-      end
+    it "returns http instance with custom values" do
+      expect(http_instance.host).to eq(host)
+      expect(http_instance.token).to eq(token)
+      expect(http_instance.port).to eq(port)
+      expect(http_instance.secure_connection).to be(secure_connection)
     end
   end
 
   describe "#run" do
-    subject(:run) do
-      described_class.new(
-        host: host,
-        port: port,
-        token: token,
-        secure_connection: secure_connection
-      ).run(email)
-    end
+    subject(:run) { described_class.new(secure_connection: secure_connection, host: host, port: port, token: token).run(email) }
 
-    let(:secure_connection) { true }
     let(:email) { "some_email@example.com" }
 
     context "when connection successful" do
