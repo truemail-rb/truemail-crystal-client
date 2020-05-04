@@ -3,17 +3,16 @@ require "http/client"
 module Truemail
   module Client
     class Http
-      DEFAULT_PORT = 9292
       USER_AGENT   = "Truemail Crystal client"
       MIME_TYPE    = "application/json"
 
       getter host, token, port, secure_connection
 
       def initialize(
+        @secure_connection : Bool,
         @host : String,
-        @token : String,
-        @port : Int32 = Truemail::Client::Http::DEFAULT_PORT,
-        @secure_connection : Bool = false
+        @port : Int32,
+        @token : String
       )
       end
 
