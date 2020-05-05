@@ -10,22 +10,18 @@ Spectator.describe Truemail::Client::Configuration do
 
   describe "defined constants" do
     it { expect(Truemail::Client::Configuration::DEFAULT_PORT).to be_an_instance_of(Int32) }
+    it { expect(Truemail::Client::Configuration::DEFAULT_VALUE).to be_an_instance_of(String) }
   end
 
   describe ".new" do
     context "with defaults params" do
-      subject(:configuration_instance) do
-        described_class.new do |config|
-          config.host = host
-          config.token = token
-        end
-      end
+      subject(:configuration_instance) { described_class.new { |config| config.secure_connection = false } }
 
       it "creates configuration instance with defaults params" do
-        expect(configuration_instance.secure_connection).to be(false)
-        expect(configuration_instance.host).to eq(host)
+        expect(configuration_instance.secure_connection).to be_false
+        expect(configuration_instance.host).to eq(Truemail::Client::Configuration::DEFAULT_VALUE)
         expect(configuration_instance.port).to eq(Truemail::Client::Configuration::DEFAULT_PORT)
-        expect(configuration_instance.token).to eq(token)
+        expect(configuration_instance.token).to eq(Truemail::Client::Configuration::DEFAULT_VALUE)
       end
     end
 
@@ -70,24 +66,22 @@ Spectator.describe Truemail::Client::Configuration do
     end
   end
 
-  describe "#complete?" do
+  describe "#not_complete?" do
     context "when configuration instance is complete" do
       subject(:configuration_instance) do
         described_class.new do |config|
-          config.secure_connection = secure_connection
           config.host = host
-          config.port = port
           config.token = token
         end
       end
 
-      specify { expect(configuration_instance.complete?).to be(true) }
+      specify { expect(configuration_instance.not_complete?).to be_false }
     end
 
     context "when configuration instance is incomplete" do
-      subject(:configuration_instance) { described_class.new { |config| config.host = host } }
+      subject(:configuration_instance) { described_class.new { |config| config.port = 80 } }
 
-      specify { expect(configuration_instance.complete?).to be(false) }
+      specify { expect(configuration_instance.not_complete?).to be_true }
     end
   end
 end

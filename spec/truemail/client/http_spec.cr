@@ -22,7 +22,7 @@ Spectator.describe Truemail::Client::Http do
       expect(http_instance.host).to eq(host)
       expect(http_instance.token).to eq(token)
       expect(http_instance.port).to eq(port)
-      expect(http_instance.secure_connection).to be(secure_connection)
+      expect(http_instance.secure_connection).to eq(secure_connection)
     end
   end
 
