@@ -1,4 +1,5 @@
 require "http/client"
+require "json"
 
 module Truemail
   module Client
