@@ -1,0 +1,21 @@
+name: truemail-client
+
+description: Truemail web API client library for Crystal
+
+version: 0.1.0
+
+authors:
+  - Vladislav Trotsenko <admin@bestweb.com.ua>
+
+crystal: 0.34.0
+
+license: MIT
+
+development_dependencies:
+  spectator:
+    gitlab: arctic-fox/spectator
+  ameba:
+    github: crystal-ameba/ameba
+  webmock:
+    github: manastech/webmock.cr
+    branch: master
