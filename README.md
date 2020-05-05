@@ -6,6 +6,7 @@
 
 ## Table of Contents
 
+- [Requirements](#requirements)
 - [Installation](#installation)
 - [Usage](#usage)
   - [Creating configuration instance](#creating-configuration-instance)
@@ -17,6 +18,10 @@
 - [Credits](#credits)
 - [Versioning](#versioning)
 - [Changelog](CHANGELOG.md)
+
+## Requirements
+
+Crystal 0.34.0 and upper.
 
 ## Installation
 
@@ -54,7 +59,7 @@ configuration = Truemail::Client::Configuration.new do |config|
 
   # Required parameter (String). It should be valid Truemail server access token
   config.token = "token"
-# end
+end
 ```
 
 ### Establishing connection with Truemail API
