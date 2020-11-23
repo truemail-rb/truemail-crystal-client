@@ -1,8 +1,14 @@
-# <img src='https://repository-images.githubusercontent.com/257071695/2dd71b80-8f02-11ea-8730-5b7a886390e2' height='250' alt='Truemail web API client library for Crystal' />
+# ![Truemail web API client library for Crystal](https://truemail-rb.org/assets/images/truemail_logo.png)
 
-[![CircleCI](https://circleci.com/gh/truemail-rb/truemail-crystal-client/tree/develop.svg?style=svg)](https://circleci.com/gh/truemail-rb/truemail-crystal-client/tree/develop) [![Shard Version](https://img.shields.io/github/v/release/truemail-rb/truemail-crystal-client)](https://github.com/truemail-rb/truemail-crystal-client/releases) [![Gitter](https://badges.gitter.im/truemail-rb/community.svg)](https://gitter.im/truemail-rb/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md)
+[![CircleCI](https://circleci.com/gh/truemail-rb/truemail-crystal-client/tree/develop.svg?style=svg)](https://circleci.com/gh/truemail-rb/truemail-crystal-client/tree/develop)
+[![Shard Version](https://img.shields.io/github/v/release/truemail-rb/truemail-crystal-client)](https://github.com/truemail-rb/truemail-crystal-client/releases)
+[![Gitter](https://badges.gitter.im/truemail-rb/community.svg)](https://gitter.im/truemail-rb/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+[![GitHub](https://img.shields.io/github/license/truemail-rb/truemail-crystal-client)](LICENSE.txt)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md)
 
 `truemail-crystal-client` shard - Truemail web API client library for Crystal.
+
+> Actual and maintainable documentation :books: for developers is living [here](https://truemail-rb.org/truemail-crystal-client).
 
 ## Table of Contents
 
@@ -21,7 +27,7 @@
 
 ## Requirements
 
-Crystal 0.34.0 and upper.
+Crystal 0.34.0+
 
 ## Installation
 
@@ -102,27 +108,16 @@ Truemail::Client.validate("admin@bestweb.com.ua", configuration)
 
 ## Truemail family
 
-All Truemail extensions: https://github.com/truemail-rb
+All Truemail solutions: https://truemail-rb.org
 
-### truemail
-
-gem `truemail` - Configurable plain Ruby email validator, https://github.com/rubygarage/truemail
-
-### truemail server
-
-Lightweight rack based web API wrapper for Truemail, https://github.com/truemail-rb/truemail-rack
-
-### truemail-rack-docker-image
-
-Lightweight rack based web API [dockerized image](https://hub.docker.com/r/truemail/truemail-rack) :whale: of Truemail server, https://github.com/truemail-rb/truemail-rack-docker-image
-
-### truemail-ruby-client
-
-gem `truemail-client` - Truemail web API client library for Ruby, https://github.com/truemail-rb/truemail-ruby-client
-
-### truemail-rspec
-
-gem `truemail-rspec` - Truemail configuration and validator RSpec helpers, https://github.com/truemail-rb/truemail-rspec
+| Name | Type | Description |
+| --- | --- | --- |
+| [truemail](https://github.com/truemail-rb/truemail) | ruby gem | Configurable framework agnostic plain Ruby email validator, main core |
+| [truemail server](https://github.com/truemail-rb/truemail-rack) | ruby app | Lightweight rack based web API wrapper for Truemail |
+| [truemail-rack-docker](https://github.com/truemail-rb/truemail-rack-docker-image) | docker image | Lightweight rack based web API [dockerized image](https://hub.docker.com/r/truemail/truemail-rack) :whale: of Truemail server |
+| [truemail-ruby-client](https://github.com/truemail-rb/truemail-ruby-client) | ruby gem | Truemail web API client library for Ruby |
+| [truemail-java-client](https://github.com/truemail-rb/truemail-java-client) | java lib | Truemail web API client library for Java |
+| [truemail-rspec](https://github.com/truemail-rb/truemail-rspec) | ruby gem | Truemail configuration and validator RSpec helpers |
 
 ## Contributing
 
