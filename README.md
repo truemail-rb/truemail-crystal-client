@@ -27,7 +27,7 @@
 
 ## Requirements
 
-Crystal 0.34.0+
+Crystal 1.3.2+
 
 ## Installation
 
