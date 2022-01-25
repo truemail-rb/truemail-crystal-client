@@ -2,12 +2,12 @@ name: truemail-client
 
 description: Truemail web API client library for Crystal
 
-version: 0.1.1
+version: 0.2.0
 
 authors:
   - Vladislav Trotsenko <admin@bestweb.com.ua>
 
-crystal: 0.34.0
+crystal: 1.3.2
 
 license: MIT
 

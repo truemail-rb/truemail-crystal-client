@@ -15,7 +15,7 @@ Spectator.describe Truemail::Client::Configuration do
 
   describe ".new" do
     context "with defaults params" do
-      subject(:configuration_instance) { described_class.new { |config| config.secure_connection = false } }
+      subject(:configuration_instance) { described_class.new(&.secure_connection=(false)) }
 
       it "creates configuration instance with defaults params" do
         expect(configuration_instance.secure_connection).to be_false
@@ -79,7 +79,7 @@ Spectator.describe Truemail::Client::Configuration do
     end
 
     context "when configuration instance is incomplete" do
-      subject(:configuration_instance) { described_class.new { |config| config.port = 80 } }
+      subject(:configuration_instance) { described_class.new(&.port=(80)) }
 
       specify { expect(configuration_instance.not_complete?).to be_true }
     end
